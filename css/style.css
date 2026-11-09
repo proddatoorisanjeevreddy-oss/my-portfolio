@@ -340,3 +340,71 @@ h1, h2, h3 { font-family: var(--font-heading); line-height: 1.2; }
   font-size: 0.85rem;
   opacity: 0.7;
 }
+/* =========================================
+   13. RESPONSIVE DESIGN
+   ========================================= */
+
+/* Tablets */
+@media (max-width: 900px) {
+  .section { padding: 4.5rem 0; }
+  .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* Phones: hamburger menu */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.5rem;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+  .nav-toggle .bar {
+    width: 24px;
+    height: 2px;
+    background: var(--brown);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  /* Hamburger turns into an X when open */
+  .nav-toggle.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.active .bar:nth-child(2) { opacity: 0; }
+  .nav-toggle.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Menu becomes a dropdown panel below the header */
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--ivory);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 12px 24px rgba(64, 55, 47, 0.08);
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: max-height 0.35s ease, visibility 0.35s ease;
+  }
+  .nav-menu.open { max-height: 360px; visibility: visible; }
+  .nav-menu li { padding: 0 1.5rem; }
+  .nav-link { display: block; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+  .nav-link::after { display: none; }
+  .nav-menu li:last-child .nav-link { border-bottom: 0; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .container { width: calc(100% - 2rem); }
+  .section { padding: 3.5rem 0; }
+  .hero { padding: 2.5rem 0; }
+  .hero-buttons { flex-direction: column; }
+  .hero-buttons .btn { text-align: center; }
+  .code-card pre { font-size: 0.8rem; }
+  .project-card { padding: 1.5rem; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
