@@ -421,3 +421,21 @@ h1, h2, h3 { font-family: var(--font-heading); line-height: 1.2; }
   opacity: 1;
   translate: 0 0;
 }
+
+/* =========================================
+   15. ACCESSIBILITY
+   ========================================= */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--olive);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+::selection { background: var(--sage); color: var(--brown); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; translate: none; }
+}

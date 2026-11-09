@@ -73,3 +73,8 @@ revealTargets.forEach((el) => revealObserver.observe(el));
 
 // ---- 5. Automatic footer year ----
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// ---- 6. Reset the mobile menu if the window becomes wide ----
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) setMenu(false);
+});
